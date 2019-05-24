@@ -1,8 +1,6 @@
 package com.lirong.think.serializable;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 /**
  * @author lirong
@@ -18,5 +16,16 @@ public class SerialTest {
         oos.writeObject(person);
         oos.flush();
         oos.close();
+
+        FileInputStream fis = new FileInputStream("Person.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        try {
+            Person person1 = (Person) ois.readObject();
+            ois.close();
+            System.out.println(person1);
+            System.out.println(person == person1);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

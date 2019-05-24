@@ -13,7 +13,7 @@ public class Person implements Serializable {
 
     private int id;
     private String name;
-    private transient int age = 7;
+    // private transient int age = 7;
 
     public Person(int id, String name) {
         this.id = id;
@@ -23,7 +23,7 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         return "Person: " +
-                "age:"+age+
+                // "age:"+age+
                 ", id: "+ id +
                 ", name: " + name;
     }
